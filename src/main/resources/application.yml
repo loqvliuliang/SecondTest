@@ -1,0 +1,23 @@
+server:
+  port: 8978
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/demo1
+    password: root
+    username: root
+    driver-class-name:  com.mysql.jdbc.Driver
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+
+mybatis-plus:
+  mapper-locations: com/example/demo/persistence/*Mapper.xml
+  type-aliases-package: com.example.demo.domain
+  type-handlers-package: com.example.demo.persistence.typehandler
+
+
+mapper:
+  not-empty: false
+

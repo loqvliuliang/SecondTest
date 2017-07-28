@@ -1,7 +1,10 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.demo.domain.Department;
+import com.example.demo.domain.User;
 import com.example.demo.persistence.DepartmentMapper;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +31,13 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper,Departme
         Department department = departmentMapper.selectById(id);
         return department;
     }
+
+    @Override
+    public List<Department> seachDepartment(int page, int pageSize) {
+        List<Department> list = departmentMapper.selectPage(new Page<Department>(page,pageSize),new EntityWrapper<>());
+        return list;
+    }
+
+
 
 }

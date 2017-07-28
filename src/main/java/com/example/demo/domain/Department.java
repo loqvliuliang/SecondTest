@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.example.demo.security.AuthenticationMethod;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.time.ZonedDateTime;
 @Data
 @TableName("alt_department")
 public class Department {
+    @TableId
     private Long id;
     private String name;
     private String code;

@@ -1,5 +1,8 @@
 server:
-  port: 8978
+  port: 12000
+
+liquibase:
+  change-log: classpath:db/liquibase/master.xml
 
 spring:
   datasource:
@@ -11,6 +14,14 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
     date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  redis:
+      host: localhost
+      port: 6379
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1
 
 mybatis-plus:
   mapper-locations: com/example/demo/persistence/*Mapper.xml
@@ -21,12 +32,18 @@ mybatis-plus:
     refresh-mapper: true
 
 
+
 mapper:
   not-empty: false
 
 #日志配置
-debug: true
+
 logging:
   file: d:\logfile\my.log
+  level:
+    com:
+      example:
+        demo: debug
+
 
 

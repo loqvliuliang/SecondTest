@@ -6,7 +6,11 @@
 
 
     <select id="selectUsersByDepartmentId" parameterType="java.lang.Long"  resultType="com.example.demo.domain.User" >
-        SELECT id,departmentId,username,password,fullName from alt_user where departmentId=#{departmentId}
+        SELECT id,departmentId,username,password,role from alt_user where departmentId=#{departmentId}
+    </select>
+
+    <select id="selectByName" parameterType="string" resultType="com.example.demo.domain.User">
+        SELECT id,departmentId,username,password,role from alt_user where username = #{name}
     </select>
 
 </mapper>

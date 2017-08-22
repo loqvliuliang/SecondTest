@@ -1,16 +1,25 @@
 package com.example.demo;
 
+import com.example.demo.service.DepartmentService;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
+
 public class Demo1111111ApplicationTests {
+	@Autowired
+	private  DepartmentService departmentService;
+
+	@Before
+	public void before(){
+
+	}
 
 	@Test
 	public void contextLoads() {
+		System.out.print(11);
+
 	}
 
 }

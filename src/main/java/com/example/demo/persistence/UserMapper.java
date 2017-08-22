@@ -14,4 +14,7 @@ public interface UserMapper  extends BaseMapper<User>{
 
     List<User> selectUsersByDepartmentId(Long departmentId);
 
+    User selectByName(String name);
+
+
 }

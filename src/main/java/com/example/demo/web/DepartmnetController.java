@@ -1,5 +1,6 @@
 package com.example.demo.web;
 
+import com.baomidou.mybatisplus.activerecord.Model;
 import com.example.demo.domain.Department;
 import com.example.demo.service.DepartmentService;
 import org.apache.ibatis.jdbc.Null;
@@ -36,6 +37,12 @@ public class DepartmnetController {
     }
 
 
+    @GetMapping("/test/Transactional")
+    public void test1(){
+
+        departmentService.insertDepartment();
+    }
+
 
     //分页查询
     @GetMapping("/departments")
@@ -43,6 +50,4 @@ public class DepartmnetController {
         List<Department> list = departmentService.seachDepartment(page,pageSize);
         return list;
     }
-
-
 }

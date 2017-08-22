@@ -39,4 +39,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
         List<User> list = userMapper.selectUsersByDepartmentId(departmentId);
         return list;
     }
+
+    @Override
+    public User findByName(String name) {
+
+        return userMapper.selectByName(name);
+    }
+
+
 }

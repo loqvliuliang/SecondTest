@@ -3,18 +3,19 @@ package com.example.demo.web;
 import com.example.demo.domain.Department;
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 /**
  * Created by ll on 2017/7/28.
  */
-@RestController
-@RequestMapping("/api")
+@Controller
+
+//@RequestMapping("/api")
 public class UserController {
     private final UserService userService;
 
@@ -37,5 +38,23 @@ public class UserController {
         return list;
     }
 
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 
+    @RequestMapping("/hello")
+    public String hello() {
+        return "/user/hello";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/findByName/{name}")
+    public User findByName(@PathVariable String name){
+        return userService.findByName(name);
+    }
 }

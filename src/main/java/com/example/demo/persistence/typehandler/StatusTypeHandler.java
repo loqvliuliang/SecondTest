@@ -9,12 +9,14 @@ package com.example.demo.persistence.typehandler;
 import com.example.demo.security.AuthenticationMethod;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.MappedTypes;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@MappedTypes(AuthenticationMethod.class)
 public class StatusTypeHandler extends BaseTypeHandler<AuthenticationMethod>{
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, AuthenticationMethod authenticationMethod, JdbcType jdbcType) throws SQLException {

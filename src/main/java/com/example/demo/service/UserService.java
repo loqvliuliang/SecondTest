@@ -12,4 +12,5 @@ public interface UserService {
     //根据UserId查询部门信息
     public Department findDepartmentByUserId(Long userId);
     List<User> findUsersByDepartmentId(Long departmentId);
+    User findByName(String name);
 }
